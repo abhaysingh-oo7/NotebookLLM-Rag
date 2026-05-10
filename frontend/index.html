@@ -288,9 +288,9 @@
 
             <div class="upload-box" id="uploadBox">
                 <div class="upload-icon">📄</div>
-                <div class="upload-text">Drop PDF here or click</div>
-                <div class="upload-hint">Supported: PDF files</div>
-                <input type="file" id="fileInput" accept=".pdf" />
+                <div class="upload-text">Drop PDF or TXT here or click</div>
+                <div class="upload-hint">Supported: PDF, TXT files</div>
+                <input type="file" id="fileInput" accept=".pdf,.txt" />
             </div>
 
             <div class="file-info" id="fileInfo">
@@ -361,8 +361,8 @@
         });
 
         async function handleFile(file) {
-            if (!file || !file.name.endsWith('.pdf')) {
-                showError('Please upload a PDF file');
+            if (!file || (!file.name.endsWith('.pdf') && !file.name.endsWith('.txt'))) {
+                showError('Please upload a PDF or TXT file');
                 return;
             }
 

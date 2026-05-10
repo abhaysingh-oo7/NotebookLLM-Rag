@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { ingestPDF } from "../services/ingest.js";
+import { ingestFile } from "../services/ingest.js";
 
 const router = express.Router();
 
@@ -23,7 +23,7 @@ router.post(
       }
 
       const chunks =
-        await ingestPDF(req.file.path);
+        await ingestFile(req.file.path, req.file.originalname);
 
       res.json({
         success: true,
